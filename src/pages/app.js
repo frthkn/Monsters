@@ -23,7 +23,7 @@ class App extends Component {
                                 name:{firstName:'Hatice', lastName:'Firat2'}
                             
                         }
-                    }, ()=>{console.log(this.state)});
+                    }, ()=>{console.log(this.state, 'Hi ')});
                     
                 }}>
                     
