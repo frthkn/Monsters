@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import App from './app'
-import styles from '@/styles/Home.module.css'
+
 
 
 
