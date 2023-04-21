@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import App from './app'
+import App from './_app'
 
 
 
