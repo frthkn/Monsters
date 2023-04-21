@@ -1,12 +1,13 @@
+import CardList from "@/components/card-list/card-list.component";
 import { Component } from "react";
-
 
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            monsters: []
+            monsters: [],
+            searchField: ''
         }
 
     }
@@ -24,19 +25,38 @@ class App extends Component {
         ));
        
     }
-x
+
+    onSearchChange = (event)=>{
+        console.log(event.target.value)
+        const searchField = event.target.value.toLocaleLowerCase();
+       
+        this.setState(
+            ()=>{
+            return { searchField}
+        })
+        
+        }
+
     render() {
+        const {monsters, searchField} = this.state;
+        const {onSearchChange} = this;
+        const filteredMonsters = monsters.filter((monster)=>{
+            return monster.name.toLocaleLowerCase().includes(searchField)
+
+        });
         return (
             <div>
-                {
-                    this.state.monsters.map((monster => {
+                <input className='searh-box' type='search' placeholder='search monsters' onChange={onSearchChange}/>
+               {/* {
+                    filteredMonsters.map((monster => {
                         return <div key={monster.id}>
                             <h1>
                                 {monster.name}
                             </h1>
                         </div>
                     }))
-                }
+                } */}
+                <CardList />
             </div>
         )
     }
