@@ -1,32 +1,31 @@
 import { useState } from "react";
 
 import SearchBox from "@/components/search-box/search-box.component";
-import CardList from "@/components/card-list/card-list.component";
+//import CardList from "@/components/card-list/card-list.component";
 import './../styles/App.css'
 
 
-const App = ()=> {
+const App = () => {
 
-    const [state, setState] = useState();
+    const [searchField, setSearchField] = useState('');
+    console.log({searchField})
     const onSearchChange = (event) => {
-        const searchField = event.target.value.toLocaleLowerCase();
-        this.setState (()=>{
-            return {searchField}
+        const searchFieldString = event.target.value.toLocaleLowerCase();
+        setSearchField(searchFieldString)
 
-    })
     }
 
     return (
-                   <div className="App">
-                <h1 className="app-title">Monsters Rolodex</h1>
-                <SearchBox 
+        <div className="App">
+            <h1 className="app-title">Monsters Rolodex</h1>
+            <SearchBox
                 className='monsters-searchBox'
-                onChangeHandler={onSearchChange} 
-                placeholder='search monsters' 
-                />
+                onChangeHandler={onSearchChange}
+                placeholder='search monsters'
+            />
 
-                <CardList monsters={filteredMonsters} />
-            </div> 
+            {/* <CardList monsters={filteredMonsters} /> */}
+        </div>
     )
 }
 
