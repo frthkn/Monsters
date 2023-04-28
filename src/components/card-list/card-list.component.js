@@ -12,7 +12,6 @@ const CardList = ({ monsters }) => (
                 <Card key={monster.id} monster={monster} />
             )
         })};
-
     </div>
 
 
