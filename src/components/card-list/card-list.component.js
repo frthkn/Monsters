@@ -8,7 +8,6 @@ const CardList = ({ monsters }) => (
 
     <div className={styles.cardList}>
         {monsters.map((monster) => {
-            monster;
             return (
                 <Card key={monster.id} monster={monster} />
             )
